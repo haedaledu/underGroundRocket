@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101523">
+    <meta name="description" content="지렁이를 피해 오래 살아남고, 지하로켓을 구해 보세요!">
+    <title>지하로켓 구하기</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="masthead">
+        <a class="brand" href="./" aria-label="지하로켓 구하기 홈">
+          <span class="brand-icon" aria-hidden="true">🚀</span>
+          <span>지하로켓 <b>구하기</b></span>
+        </a>
+        <p class="edition">UNDERGROUND SURVIVAL · 001</p>
+      </header>
+
+      <section class="intro" aria-labelledby="game-title">
+        <div>
+          <p class="eyebrow"><span class="status-dot"></span> 지하 생존 프로젝트</p>
+          <h1 id="game-title">지렁이를 피해,<br><span>끝까지 살아남아!</span></h1>
+          <p class="intro-copy">좌우로 움직이며 지렁이를 피하세요. 오래 버틸수록 점수가 올라가요.</p>
+        </div>
+        <div class="intro-stamp" aria-hidden="true">
+          <span>오늘의 미션</span>
+          <strong>생존!</strong>
+          <span>↘ 조심해서 이동</span>
+        </div>
+      </section>
+
+      <section class="game-panel" aria-label="지하로켓 구하기 게임">
+        <div class="scoreboard" aria-label="게임 점수">
+          <div class="score-cell">
+            <span class="score-label">현재 점수</span>
+            <strong id="score" aria-live="off">000000</strong>
+          </div>
+          <div class="score-divider" aria-hidden="true"></div>
+          <div class="score-cell best-score">
+            <span class="score-label">최고 기록</span>
+            <strong id="best-score">000000</strong>
+          </div>
+          <div class="bonus-badge" id="bonus-badge" hidden>
+            <span class="bonus-star" aria-hidden="true">✦</span>
+            <span>점수 1.5배 <b id="bonus-time">3.0</b></span>
+          </div>
+        </div>
+
+        <div class="game-shell" id="game-shell">
+          <canvas id="game" aria-label="지하 동굴에서 지렁이 장애물을 피하는 게임 화면"></canvas>
+          <div class="scene-label" aria-hidden="true"><span>SECTOR 01</span><span>지하 터널</span></div>
+
+          <div class="mission-prompt" id="mission-prompt" hidden>
+            <p class="mission-caption">긴급 미션 <span>성공하면 3초 보너스</span></p>
+            <button class="mission-button" id="mission-button" type="button" aria-label="원형 미션 버튼을 눌러 미션 완료">
+              <span class="mission-button-icon" aria-hidden="true">!</span>
+              <span>눌러서<br>미션 완료</span>
+            </button>
+            <div class="mission-timer" aria-label="미션 남은 시간">
+              <span id="mission-timer-bar"></span>
+            </div>
+            <p class="mission-countdown"><span id="mission-time">10</span>초 안에 눌러요!</p>
+          </div>
+
+          <div class="start-screen" id="start-screen">
+            <div class="start-card">
+              <span class="start-kicker" id="overlay-kicker">준비됐나요?</span>
+              <h2 id="overlay-title">지하 모험을<br>시작해 볼까요?</h2>
+              <p id="overlay-copy">지렁이를 피해 좌우로 움직여요.<br>오래 살아남으면 점수가 올라가요.</p>
+              <button class="start-button" id="start-button" type="button">게임 시작 <span aria-hidden="true">→</span></button>
+              <p class="start-hint">방향키 또는 A / D 키</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls" aria-label="조작 방법">
+          <div class="control-instructions">
+            <span class="keyboard-key">←</span><span class="keyboard-key">→</span>
+            <span class="control-copy">또는 <b>A</b> / <b>D</b> 키로 좌우 이동</span>
+          </div>
+          <div class="touch-controls" aria-label="터치 조작">
+            <button class="move-button" id="move-left" type="button" aria-label="왼쪽으로 이동">←</button>
+            <button class="move-button" id="move-right" type="button" aria-label="오른쪽으로 이동">→</button>
+          </div>
+          <span class="avoid-label"><span aria-hidden="true">✦</span> 지렁이에 닿으면 게임 종료</span>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>한 판 더? 최고 기록에 도전해 보세요.</span>
+        <span class="footer-mark">MADE FOR SURVIVORS <span aria-hidden="true">✳</span></span>
+      </footer>
+    </main>
+  </body>
+</html>

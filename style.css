@@ -1,0 +1,685 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Jua&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap");
+
+:root {
+  color-scheme: dark;
+  font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
+  background: #101523;
+  color: #f3f5f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #f3f5f8;
+  --muted: #9da6b6;
+  --line: rgba(209, 220, 237, 0.13);
+  --panel: #1a2131;
+  --lime: #cdfa71;
+  --orange: #ff916b;
+  --mono: "DM Mono", Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -20%, rgba(52, 69, 103, 0.34), transparent 55%),
+    #101523;
+}
+
+button {
+  font: inherit;
+}
+
+.page {
+  width: min(100% - 48px, 1000px);
+  margin: 0 auto;
+  padding: 28px 0 24px;
+}
+
+.masthead,
+.brand,
+.intro,
+.scoreboard,
+.controls,
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.masthead {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  justify-content: flex-start;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+
+.brand b {
+  color: var(--lime);
+}
+
+.brand-icon {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  border: 1px solid rgba(205, 250, 113, 0.3);
+  border-radius: 10px;
+  background: rgba(205, 250, 113, 0.09);
+  font-size: 16px;
+}
+
+.edition,
+.eyebrow,
+.score-label,
+.scene-label,
+.start-kicker,
+.mission-caption,
+.footer-mark {
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.edition {
+  margin: 0;
+  color: #778194;
+  font-size: 10px;
+}
+
+.intro {
+  padding: 37px 0 29px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 13px;
+  color: var(--lime);
+  font-size: 10px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 12px rgba(205, 250, 113, 0.8);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 12px;
+  font-family: "Jua", "Noto Sans KR", sans-serif;
+  font-size: clamp(32px, 5vw, 46px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.17;
+}
+
+h1 span {
+  color: var(--lime);
+}
+
+.intro-copy {
+  margin-bottom: 0;
+  color: #a7afbd;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.intro-stamp {
+  display: flex;
+  width: 114px;
+  height: 114px;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-right: 6px;
+  border: 1px dashed rgba(205, 250, 113, 0.36);
+  border-radius: 50%;
+  color: #aab4c3;
+  font-family: var(--mono);
+  font-size: 8px;
+  transform: rotate(8deg);
+}
+
+.intro-stamp strong {
+  color: var(--lime);
+  font-family: "Jua", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.game-panel {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+}
+
+.scoreboard {
+  min-height: 77px;
+  justify-content: flex-start;
+  gap: 25px;
+  padding: 14px 22px;
+}
+
+.score-cell {
+  display: flex;
+  min-width: 100px;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.score-label {
+  color: #8d97a9;
+  font-size: 9px;
+}
+
+.score-cell strong {
+  color: var(--lime);
+  font-family: var(--mono);
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.best-score strong {
+  color: #e9edf4;
+  font-size: 18px;
+}
+
+.score-divider {
+  width: 1px;
+  height: 34px;
+  background: var(--line);
+}
+
+.bonus-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: auto;
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 190, 104, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 161, 82, 0.1);
+  color: #ffc078;
+  font-size: 11px;
+}
+
+.bonus-badge[hidden],
+.mission-prompt[hidden] {
+  display: none;
+}
+
+.bonus-badge b {
+  font-family: var(--mono);
+  font-weight: 500;
+}
+
+.bonus-star {
+  color: #ffb566;
+  font-size: 15px;
+}
+
+.game-shell {
+  position: relative;
+  overflow: hidden;
+  min-height: 250px;
+  background: #121b29;
+  isolation: isolate;
+}
+
+#game {
+  display: block;
+  width: 100%;
+  aspect-ratio: 960 / 500;
+  background: #121b29;
+}
+
+.scene-label {
+  position: absolute;
+  z-index: 1;
+  top: 16px;
+  right: 19px;
+  left: 19px;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(222, 231, 242, 0.55);
+  font-size: 8px;
+  pointer-events: none;
+}
+
+.start-screen {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(12, 19, 30, 0.57);
+  backdrop-filter: blur(3px);
+}
+
+.start-screen[hidden] {
+  display: none;
+}
+
+.start-card {
+  width: min(100%, 340px);
+  padding: 25px 24px 21px;
+  border: 1px solid rgba(218, 228, 242, 0.2);
+  border-radius: 17px;
+  background: rgba(25, 34, 49, 0.94);
+  text-align: center;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+}
+
+.start-kicker {
+  color: var(--lime);
+  font-size: 9px;
+}
+
+.start-card h2 {
+  margin: 9px 0 8px;
+  font-family: "Jua", "Noto Sans KR", sans-serif;
+  font-size: 27px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+}
+
+.start-card p {
+  margin-bottom: 0;
+  color: #a7b0bf;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.start-button {
+  display: inline-flex;
+  min-width: 164px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 12px 17px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--lime);
+  color: #202a1b;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.start-button:hover {
+  background: #ddff9b;
+  transform: translateY(-1px);
+}
+
+.start-hint {
+  margin-top: 11px !important;
+  color: #778194 !important;
+  font-family: var(--mono);
+  font-size: 9px !important;
+}
+
+.mission-prompt {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: min(205px, 55%);
+  flex-direction: column;
+  align-items: center;
+  padding: 17px 18px 13px;
+  border: 1px solid rgba(255, 198, 112, 0.36);
+  border-radius: 18px;
+  background: rgba(24, 31, 43, 0.96);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.38);
+  transform: translate(-50%, -50%);
+}
+
+.mission-caption {
+  margin-bottom: 9px;
+  color: #ffc078;
+  font-size: 9px;
+  text-align: center;
+}
+
+.mission-caption span {
+  display: block;
+  margin-top: 4px;
+  color: #aab2c0;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.mission-button {
+  display: flex;
+  width: 82px;
+  height: 82px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: 3px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  background: #ff9867;
+  color: #382014;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.2;
+  box-shadow: 0 0 0 5px rgba(255, 152, 103, 0.15), 0 0 25px rgba(255, 152, 103, 0.35);
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+.mission-button:hover {
+  background: #ffb087;
+  transform: scale(1.05);
+}
+
+.mission-button:active {
+  transform: scale(0.96);
+}
+
+.mission-button-icon {
+  font-family: var(--mono);
+  font-size: 20px;
+}
+
+.mission-timer {
+  overflow: hidden;
+  width: 100%;
+  height: 4px;
+  margin-top: 13px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.mission-timer span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: #ffad76;
+  transition: width 100ms linear;
+}
+
+.mission-countdown {
+  margin: 7px 0 0;
+  color: #c1c8d2;
+  font-size: 10px;
+}
+
+.mission-countdown span {
+  color: #ffca8d;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.controls {
+  min-height: 56px;
+  gap: 10px;
+  padding: 10px 19px;
+  border-top: 1px solid var(--line);
+}
+
+.control-instructions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.keyboard-key {
+  display: inline-grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 1px solid rgba(225, 233, 244, 0.22);
+  border-radius: 6px;
+  background: #252e40;
+  color: #d6deea;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.control-copy {
+  margin-left: 5px;
+  color: #a9b1bf;
+  font-size: 10px;
+}
+
+.control-copy b {
+  color: #e9edf4;
+  font-family: var(--mono);
+}
+
+.avoid-label {
+  color: #97a1b2;
+  font-size: 10px;
+}
+
+.avoid-label span {
+  margin-right: 5px;
+  color: var(--orange);
+}
+
+.touch-controls {
+  display: none;
+  gap: 8px;
+}
+
+.move-button {
+  width: 42px;
+  height: 38px;
+  border: 1px solid rgba(225, 233, 244, 0.2);
+  border-radius: 9px;
+  background: #252e40;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 17px;
+  touch-action: none;
+  user-select: none;
+}
+
+.move-button:active {
+  border-color: var(--lime);
+  background: rgba(205, 250, 113, 0.13);
+}
+
+.footer {
+  padding-top: 18px;
+  color: #818b9c;
+  font-size: 10px;
+}
+
+.footer-mark {
+  color: #687386;
+  font-size: 8px;
+}
+
+.footer-mark span {
+  margin-left: 5px;
+  color: var(--lime);
+  font-size: 11px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .page {
+    width: min(100% - 28px, 1000px);
+    padding-top: 17px;
+  }
+
+  .edition {
+    font-size: 8px;
+  }
+
+  .intro {
+    padding: 29px 0 22px;
+  }
+
+  .intro-stamp {
+    width: 81px;
+    height: 81px;
+    margin-right: 0;
+    font-size: 6px;
+  }
+
+  .intro-stamp strong {
+    font-size: 19px;
+  }
+
+  .intro-copy {
+    max-width: 300px;
+    font-size: 11px;
+  }
+
+  .game-panel {
+    border-radius: 14px;
+  }
+
+  .scoreboard {
+    min-height: 68px;
+    gap: 13px;
+    padding: 12px 14px;
+  }
+
+  .score-cell {
+    min-width: 75px;
+  }
+
+  .score-cell strong {
+    font-size: 19px;
+  }
+
+  .best-score strong {
+    font-size: 16px;
+  }
+
+  .bonus-badge {
+    gap: 4px;
+    padding: 7px 8px;
+    font-size: 9px;
+  }
+
+  .bonus-star {
+    font-size: 12px;
+  }
+
+  .game-shell {
+    min-height: 0;
+  }
+
+  .scene-label {
+    top: 11px;
+    right: 12px;
+    left: 12px;
+    font-size: 7px;
+  }
+
+  .start-card {
+    max-width: 290px;
+    padding: 18px 15px;
+  }
+
+  .start-card h2 {
+    font-size: 22px;
+  }
+
+  .start-card p {
+    font-size: 10px;
+  }
+
+  .start-button {
+    margin-top: 12px;
+    padding: 10px 14px;
+  }
+
+  .start-hint {
+    margin-top: 8px !important;
+  }
+
+  .mission-prompt {
+    width: min(180px, 65%);
+    padding: 12px 13px 10px;
+  }
+
+  .mission-button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .controls {
+    min-height: 55px;
+    padding: 8px 11px;
+  }
+
+  .control-instructions {
+    display: none;
+  }
+
+  .touch-controls {
+    display: flex;
+  }
+
+  .avoid-label {
+    font-size: 9px;
+  }
+
+  .footer {
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 9px;
+  }
+
+  .footer-mark {
+    font-size: 7px;
+    text-align: right;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
