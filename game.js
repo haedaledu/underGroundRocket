@@ -246,15 +246,9 @@
         context.drawImage(soilImage, 0, y, WIDTH, tileHeight);
       }
     }
-    context.fillStyle = "rgba(25, 13, 7, 0.24)";
-    context.fillRect(0, 0, WIDTH, HEIGHT);
   }
 
   function drawLanes() {
-    for (let lane = 0; lane < LANE_COUNT; lane += 1) {
-      context.fillStyle = lane % 2 === 0 ? "rgba(32, 17, 9, 0.08)" : "rgba(255, 211, 155, 0.04)";
-      context.fillRect(lane * LANE_WIDTH, 0, LANE_WIDTH, HEIGHT);
-    }
     context.strokeStyle = "rgba(255, 231, 195, 0.78)";
     context.lineWidth = 3;
     for (let lane = 1; lane < LANE_COUNT; lane += 1) {
