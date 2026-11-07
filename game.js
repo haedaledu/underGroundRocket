@@ -33,7 +33,7 @@
     right: loadImage("./assets/player-right.png"),
     front: loadImage("./assets/player-front.png"),
   };
-  const soilImage = loadImage("./assets/soil.png");
+  const soilImage = loadImage("./assets/soil.png?v=soil-original-20261107");
 
   const player = {
     lane: 1,
@@ -231,8 +231,6 @@
 
   function drawScene() {
     if (!context) return;
-    context.fillStyle = "#4b2a1b";
-    context.fillRect(0, 0, WIDTH, HEIGHT);
     drawSoil();
     drawLanes();
     for (const worm of worms) drawWorm(worm);

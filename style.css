@@ -249,7 +249,7 @@ h1 span {
   position: relative;
   overflow: hidden;
   min-height: 250px;
-  background: #4b2a1b url("./assets/soil.png") center / cover;
+  background: #4b2a1b url("./assets/soil.png?v=soil-original-20261107") center / cover;
   isolation: isolate;
 }
 
@@ -257,7 +257,7 @@ h1 span {
   display: block;
   width: 100%;
   aspect-ratio: 960 / 500;
-  background: #4b2a1b;
+  background: transparent;
 }
 
 .scene-label {
@@ -280,8 +280,7 @@ h1 span {
   display: grid;
   place-items: center;
   padding: 24px;
-  background: rgba(12, 19, 30, 0.57);
-  backdrop-filter: blur(3px);
+  background: transparent;
 }
 
 .start-screen[hidden] {
