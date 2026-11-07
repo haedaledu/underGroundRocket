@@ -249,7 +249,7 @@ h1 span {
   position: relative;
   overflow: hidden;
   min-height: 250px;
-  background: #121b29;
+  background: #4b2a1b url("./assets/soil.png") center / cover;
   isolation: isolate;
 }
 
@@ -257,7 +257,7 @@ h1 span {
   display: block;
   width: 100%;
   aspect-ratio: 960 / 500;
-  background: #121b29;
+  background: #4b2a1b;
 }
 
 .scene-label {
@@ -482,6 +482,10 @@ h1 span {
 .control-copy b {
   color: #e9edf4;
   font-family: var(--mono);
+}
+
+.control-copy {
+  white-space: nowrap;
 }
 
 .avoid-label {
